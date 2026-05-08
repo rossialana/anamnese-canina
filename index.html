@@ -7,139 +7,149 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F5F0E8;
-    --warm-white: #FDFAF4;
-    --bark: #3D2B1F;
-    --bark-light: #6B4C3B;
-    --sage: #7A9E7E;
-    --sage-dark: #4E7352;
-    --terracotta: #C4622D;
-    --terracotta-light: #E8896A;
-    --gold: #C9A84C;
-    --muted: #9E8E82;
-    --border: #DDD5C8;
+    --cream: #F5F0E8; --warm-white: #FDFAF4; --bark: #3D2B1F; --bark-light: #6B4C3B;
+    --sage: #7A9E7E; --sage-dark: #4E7352; --terracotta: #C4622D; --gold: #C9A84C;
+    --muted: #9E8E82; --border: #DDD5C8;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--bark); min-height: 100vh; }
 
-  header {
-    background: var(--bark);
-    padding: 20px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky; top: 0; z-index: 100;
-    border-bottom: 3px solid var(--terracotta);
-  }
-  .logo { display: flex; align-items: baseline; gap: 12px; }
-  .logo-title { font-family: 'DM Serif Display', serif; font-size: 22px; color: var(--cream); }
-  .logo-sub { font-size: 11px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; }
-  .paw-icon { font-size: 26px; margin-right: 6px; }
-  .step-dots { display: flex; gap: 6px; align-items: center; }
+  header { background: var(--bark); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; border-bottom: 3px solid var(--terracotta); }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-title { font-family: 'DM Serif Display', serif; font-size: 21px; color: var(--cream); }
+  .logo-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
+  .step-dots { display: flex; gap: 6px; }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--bark-light); transition: background 0.3s; }
   .dot.active { background: var(--terracotta); }
   .dot.done { background: var(--sage); }
 
-  .container { max-width: 860px; margin: 0 auto; padding: 40px 20px 80px; }
-
-  .section-card { background: var(--warm-white); border-radius: 16px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; display: none; animation: fadeUp 0.4s ease; }
+  .container { max-width: 820px; margin: 0 auto; padding: 36px 20px 80px; }
+  .section-card { background: var(--warm-white); border-radius: 16px; border: 1px solid var(--border); margin-bottom: 20px; overflow: hidden; display: none; animation: fadeUp 0.35s ease; }
   .section-card.active { display: block; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
 
-  .section-header { background: var(--bark); padding: 18px 26px; display: flex; align-items: center; gap: 14px; }
-  .section-icon { width: 36px; height: 36px; background: var(--terracotta); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
-  .section-title { font-family: 'DM Serif Display', serif; font-size: 17px; color: var(--cream); }
-  .section-subtitle { font-size: 11px; color: var(--muted); margin-top: 2px; }
-  .section-body { padding: 24px; }
+  .section-header { background: var(--bark); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+  .section-icon { width: 34px; height: 34px; background: var(--terracotta); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--cream); }
+  .section-subtitle { font-size: 11px; color: var(--muted); margin-top: 1px; }
+  .section-body { padding: 22px; }
 
-  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
-  .field-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
   .field-grid.full { grid-template-columns: 1fr; }
-  .field-group { display: flex; flex-direction: column; gap: 6px; }
+  .field-group { display: flex; flex-direction: column; gap: 5px; }
   .field-group.full-width { grid-column: 1 / -1; }
-
-  label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bark-light); }
-  input[type="text"], input[type="number"], select, textarea {
-    background: var(--cream); border: 1.5px solid var(--border); border-radius: 10px;
-    padding: 10px 13px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--bark);
+  label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bark-light); }
+  input[type="text"], input[type="number"], textarea {
+    background: var(--cream); border: 1.5px solid var(--border); border-radius: 9px;
+    padding: 9px 12px; font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--bark);
     outline: none; transition: border-color 0.2s, box-shadow 0.2s; width: 100%;
   }
-  input:focus, select:focus, textarea:focus { border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(196,98,45,0.12); }
-  textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+  input:focus, textarea:focus { border-color: var(--terracotta); box-shadow: 0 0 0 3px rgba(196,98,45,0.10); }
+  textarea { resize: vertical; min-height: 76px; line-height: 1.5; }
 
-  .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+  .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 3px; }
   .radio-group label, .check-group label {
-    display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 400;
-    letter-spacing: 0; text-transform: none; color: var(--bark); cursor: pointer;
-    background: var(--cream); border: 1.5px solid var(--border); padding: 6px 13px;
-    border-radius: 20px; transition: all 0.2s; user-select: none;
+    font-size: 12px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--bark);
+    cursor: pointer; background: var(--cream); border: 1.5px solid var(--border);
+    padding: 5px 12px; border-radius: 20px; transition: all 0.18s; user-select: none;
   }
   .radio-group input[type="radio"], .check-group input[type="checkbox"] { display: none; }
   .radio-group label:has(input:checked), .check-group label:has(input:checked) { background: var(--terracotta); border-color: var(--terracotta); color: white; }
 
-  .scale-group { display: flex; gap: 5px; align-items: center; margin-top: 4px; }
-  .scale-label { font-size: 11px; color: var(--muted); }
+  .scale-group { display: flex; gap: 5px; align-items: center; margin-top: 3px; }
+  .scale-label { font-size: 10px; color: var(--muted); }
   .scale-group input[type="radio"] { display: none; }
-  .scale-group label {
-    width: 34px; height: 34px; border-radius: 8px; background: var(--cream); border: 1.5px solid var(--border);
-    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 500;
-    cursor: pointer; transition: all 0.2s; text-transform: none; letter-spacing: 0; color: var(--bark);
-  }
+  .scale-group label { width: 32px; height: 32px; border-radius: 7px; background: var(--cream); border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.18s; text-transform: none; letter-spacing: 0; color: var(--bark); }
   .scale-group label:has(input:checked) { background: var(--terracotta); border-color: var(--terracotta); color: white; }
 
-  .divider { height: 1px; background: var(--border); margin: 20px 0; }
-  .subsection-title {
-    font-size: 12px; font-weight: 600; color: var(--sage-dark); text-transform: uppercase;
-    letter-spacing: 0.1em; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
-  }
+  .divider { height: 1px; background: var(--border); margin: 18px 0; }
+  .subsection-title { font-size: 11px; font-weight: 600; color: var(--sage-dark); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .subsection-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-top: 1px solid var(--border); background: var(--cream); }
-  .btn { padding: 11px 26px; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+  .nav-buttons { display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; border-top: 1px solid var(--border); background: var(--cream); }
+  .btn { padding: 10px 24px; border-radius: 9px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; border: none; transition: all 0.18s; }
   .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--bark-light); }
   .btn-outline:hover { border-color: var(--bark); color: var(--bark); }
   .btn-primary { background: var(--terracotta); color: white; }
   .btn-primary:hover { background: var(--bark); }
-  .btn-analyze { background: var(--sage-dark); color: white; width: 100%; padding: 15px; font-size: 15px; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'DM Sans', sans-serif; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
-  .btn-analyze:hover { background: var(--bark); }
-  .btn-analyze:disabled { opacity: 0.6; cursor: wait; }
 
-  #ai-result { display: none; background: var(--warm-white); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; margin-top: 20px; animation: fadeUp 0.5s ease; }
-  .ai-header { background: linear-gradient(135deg, var(--sage-dark), var(--bark)); padding: 20px 26px; display: flex; align-items: center; gap: 14px; }
-  .ai-header h3 { font-family: 'DM Serif Display', serif; font-size: 19px; color: var(--cream); }
-  .ai-header p { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; }
-  .ai-badge { background: var(--gold); color: var(--bark); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-left: auto; white-space: nowrap; }
-  .ai-body { padding: 26px; }
-  .ai-body h4 { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--terracotta); margin: 20px 0 8px; }
-  .ai-body h4:first-child { margin-top: 0; }
-  .ai-body p, .ai-body li { font-size: 14px; line-height: 1.75; color: var(--bark); }
-  .ai-body ul, .ai-body ol { padding-left: 18px; }
-  .ai-body li { margin-bottom: 5px; }
-  .ai-body strong { color: var(--bark-light); }
-  .loading-dots { display: flex; gap: 6px; justify-content: center; padding: 40px; }
-  .loading-dots span { width: 10px; height: 10px; background: var(--terracotta); border-radius: 50%; animation: bounce 1.2s infinite; }
-  .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
-  .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
-  @keyframes bounce { 0%,60%,100% { transform:translateY(0); opacity:0.4; } 30% { transform:translateY(-10px); opacity:1; } }
+  .btn-pdf {
+    background: var(--sage-dark); color: white; width: 100%; padding: 16px;
+    font-size: 15px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; gap: 10px; font-family: 'DM Sans', sans-serif;
+    font-weight: 600; cursor: pointer; border: none; transition: all 0.2s;
+  }
+  .btn-pdf:hover { background: var(--bark); }
 
-  .disclaimer { background: rgba(201,168,76,0.1); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 15px; font-size: 12px; color: var(--bark-light); margin-top: 18px; line-height: 1.5; }
-
-  .btn-print { background: transparent; border: 1.5px solid var(--sage-dark); color: var(--sage-dark); border-radius: 8px; padding: 8px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 16px; }
-  .btn-print:hover { background: var(--sage-dark); color: white; }
+  .pdf-hint {
+    background: rgba(78,115,82,0.08); border: 1px solid rgba(78,115,82,0.25);
+    border-radius: 10px; padding: 16px 18px; margin-top: 14px; font-size: 13px;
+    color: var(--bark-light); line-height: 1.7;
+  }
+  .pdf-hint strong { color: var(--sage-dark); }
+  .pdf-hint .prompt-box {
+    background: var(--cream); border: 1px dashed var(--border); border-radius: 8px;
+    padding: 10px 14px; margin-top: 8px; font-size: 12px; font-style: italic;
+    color: var(--bark); line-height: 1.6;
+  }
 
   @media (max-width: 600px) {
     .field-grid { grid-template-columns: 1fr; }
-    .field-grid.three { grid-template-columns: 1fr 1fr; }
     header { padding: 14px 18px; }
-    .container { padding: 20px 14px 60px; }
+    .container { padding: 18px 14px 60px; }
     .logo-sub { display: none; }
   }
 
+  /* ═══════════════════════════════
+     PRINT / PDF STYLES
+  ═══════════════════════════════ */
   @media print {
-    header, .nav-buttons, .btn-analyze, .btn-print { display: none !important; }
-    .section-card { display: block !important; page-break-inside: avoid; }
-    #ai-result { display: block !important; }
-    body { background: white; }
+    @page { size: A4; margin: 14mm 16mm; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    body { background: white !important; font-size: 11px; }
+
+    header, .nav-buttons, #step-5 { display: none !important; }
+
+    .container { max-width: 100%; padding: 0; }
+
+    /* Show all content sections */
+    .section-card { display: block !important; border-radius: 8px !important; margin-bottom: 14px !important; border: 1px solid #DDD5C8 !important; page-break-inside: avoid; }
+
+    .section-header { background: #3D2B1F !important; padding: 9px 14px !important; border-radius: 7px 7px 0 0 !important; }
+    .section-title { font-size: 13px !important; color: #F5F0E8 !important; }
+    .section-subtitle { font-size: 10px !important; color: #9E8E82 !important; }
+    .section-icon { background: #C4622D !important; width: 26px !important; height: 26px !important; font-size: 13px !important; border-radius: 6px !important; }
+    .section-body { padding: 12px 14px !important; }
+
+    label { font-size: 9px !important; }
+    input[type="text"], input[type="number"], textarea {
+      background: #F9F6F1 !important; border: 1px solid #DDD5C8 !important;
+      padding: 4px 8px !important; font-size: 11px !important; border-radius: 5px !important; min-height: unset !important;
+    }
+    textarea { min-height: 32px !important; }
+
+    .radio-group label, .check-group label { font-size: 10px !important; padding: 3px 9px !important; border-radius: 12px !important; }
+    .radio-group label:has(input:checked), .check-group label:has(input:checked) { background: #C4622D !important; color: white !important; border-color: #C4622D !important; }
+
+    .scale-group label { width: 22px !important; height: 22px !important; font-size: 10px !important; border-radius: 5px !important; }
+    .scale-group label:has(input:checked) { background: #C4622D !important; color: white !important; }
+
+    .subsection-title { font-size: 9px !important; margin-bottom: 8px !important; }
+    .divider { margin: 8px 0 !important; }
+    .field-grid { gap: 8px !important; margin-bottom: 8px !important; }
+
+    /* PDF top header */
+    #pdf-header {
+      display: flex !important;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #C4622D;
+      margin-bottom: 16px;
+    }
+    #pdf-header .ph-title { font-family: 'DM Serif Display', serif; font-size: 20px; color: #3D2B1F; }
+    #pdf-header .ph-sub { font-size: 11px; color: #9E8E82; margin-top: 2px; }
+    #pdf-header .ph-meta { text-align: right; font-size: 11px; color: #6B4C3B; line-height: 1.5; }
   }
 </style>
 </head>
@@ -147,7 +157,7 @@
 
 <header>
   <div class="logo">
-    <span class="paw-icon">🐾</span>
+    <span style="font-size:24px">🐾</span>
     <div>
       <div class="logo-title">AnamneCão</div>
       <div class="logo-sub">Anamnese Comportamental Canina</div>
@@ -156,16 +166,22 @@
   <div class="step-dots" id="step-dots"></div>
 </header>
 
+<!-- PDF-only header -->
+<div id="pdf-header" style="display:none; max-width:820px; margin:0 auto;">
+  <div>
+    <div class="ph-title">🐾 AnamneCão</div>
+    <div class="ph-sub">Anamnese Comportamental Canina</div>
+  </div>
+  <div class="ph-meta" id="pdf-meta-text"></div>
+</div>
+
 <div class="container">
 
-  <!-- STEP 1 -->
+  <!-- ── STEP 1 ── -->
   <div class="section-card active" id="step-1">
     <div class="section-header">
       <div class="section-icon">🐶</div>
-      <div>
-        <div class="section-title">1. Identificação do Paciente</div>
-        <div class="section-subtitle">Dados do animal e tutores</div>
-      </div>
+      <div><div class="section-title">1. Identificação do Paciente</div><div class="section-subtitle">Dados do animal e tutores</div></div>
     </div>
     <div class="section-body">
       <div class="subsection-title">Animal</div>
@@ -174,176 +190,63 @@
         <div class="field-group"><label>Raça / Cruza</label><input type="text" id="raca" placeholder="Ex: Shih-tzu + Buldogue Francês"></div>
         <div class="field-group"><label>Idade</label><input type="text" id="idade" placeholder="Ex: 5 anos"></div>
         <div class="field-group"><label>Peso (kg)</label><input type="number" id="peso" placeholder="Ex: 8"></div>
-        <div class="field-group">
-          <label>Sexo</label>
-          <div class="radio-group">
-            <label><input type="radio" name="sexo" value="Macho"> Macho</label>
-            <label><input type="radio" name="sexo" value="Fêmea"> Fêmea</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Castrado(a)?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="castrado" value="Sim"> Sim</label>
-            <label><input type="radio" name="castrado" value="Não"> Não</label>
-            <label><input type="radio" name="castrado" value="Não sei"> Não sei</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Origem</label>
-          <div class="radio-group">
-            <label><input type="radio" name="origem" value="Canil/Pet"> Canil / Pet</label>
-            <label><input type="radio" name="origem" value="Resgate"> Resgate</label>
-            <label><input type="radio" name="origem" value="Criador"> Criador</label>
-            <label><input type="radio" name="origem" value="Outro"> Outro</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Sexo</label><div class="radio-group"><label><input type="radio" name="sexo" value="Macho"> Macho</label><label><input type="radio" name="sexo" value="Fêmea"> Fêmea</label></div></div>
+        <div class="field-group"><label>Castrado(a)?</label><div class="radio-group"><label><input type="radio" name="castrado" value="Sim"> Sim</label><label><input type="radio" name="castrado" value="Não"> Não</label><label><input type="radio" name="castrado" value="Não sei"> Não sei</label></div></div>
+        <div class="field-group"><label>Origem</label><div class="radio-group"><label><input type="radio" name="origem" value="Canil/Pet"> Canil/Pet</label><label><input type="radio" name="origem" value="Resgate"> Resgate</label><label><input type="radio" name="origem" value="Criador"> Criador</label><label><input type="radio" name="origem" value="Outro"> Outro</label></div></div>
         <div class="field-group"><label>Tempo com a família atual</label><input type="text" id="tempo_familia" placeholder="Ex: 5 anos (desde filhote)"></div>
       </div>
       <div class="divider"></div>
       <div class="subsection-title">Tutores</div>
       <div class="field-grid">
-        <div class="field-group"><label>Nome(s) do(s) tutor(es)</label><input type="text" id="tutor_nome" placeholder="Ex: João e Maria"></div>
+        <div class="field-group"><label>Nome(s)</label><input type="text" id="tutor_nome" placeholder="Ex: João e Maria"></div>
         <div class="field-group"><label>Idades</label><input type="text" id="tutor_idade" placeholder="Ex: 58 e 47 anos"></div>
         <div class="field-group"><label>Profissões</label><input type="text" id="tutor_profissao" placeholder="Ex: Empresário e professora"></div>
         <div class="field-group"><label>Composição da casa</label><input type="text" id="moradores" placeholder="Ex: 2 adultos, sem crianças"></div>
-        <div class="field-group">
-          <label>Crianças na casa?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="criancas" value="Sim"> Sim</label>
-            <label><input type="radio" name="criancas" value="Não"> Não</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Outros animais?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="outros_animais" value="Sim"> Sim</label>
-            <label><input type="radio" name="outros_animais" value="Não"> Não</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Crianças na casa?</label><div class="radio-group"><label><input type="radio" name="criancas" value="Sim"> Sim</label><label><input type="radio" name="criancas" value="Não"> Não</label></div></div>
+        <div class="field-group"><label>Outros animais?</label><div class="radio-group"><label><input type="radio" name="outros_animais" value="Sim"> Sim</label><label><input type="radio" name="outros_animais" value="Não"> Não</label></div></div>
       </div>
-      <div class="field-grid full">
-        <div class="field-group"><label>Como descrevem o vínculo com o animal?</label><textarea id="vinculo" placeholder="Ex: tratam como filho, dormem juntos, raramente estabelecem limites..."></textarea></div>
-      </div>
+      <div class="field-grid full"><div class="field-group"><label>Como descrevem o vínculo com o animal?</label><textarea id="vinculo" placeholder="Ex: tratam como filho, dormem juntos, raramente estabelecem limites..."></textarea></div></div>
     </div>
     <div class="nav-buttons"><span></span><button class="btn btn-primary" onclick="nextStep(2)">Próximo →</button></div>
   </div>
 
-  <!-- STEP 2 -->
+  <!-- ── STEP 2 ── -->
   <div class="section-card" id="step-2">
     <div class="section-header">
       <div class="section-icon">🏠</div>
-      <div>
-        <div class="section-title">2. Ambiente e Rotina</div>
-        <div class="section-subtitle">Contexto de vida do animal</div>
-      </div>
+      <div><div class="section-title">2. Ambiente e Rotina</div><div class="section-subtitle">Contexto de vida do animal</div></div>
     </div>
     <div class="section-body">
       <div class="subsection-title">Moradia e Espaço</div>
       <div class="field-grid">
-        <div class="field-group">
-          <label>Tipo de moradia</label>
-          <div class="radio-group">
-            <label><input type="radio" name="moradia" value="Apartamento"> Apartamento</label>
-            <label><input type="radio" name="moradia" value="Casa com quintal"> Casa com quintal</label>
-            <label><input type="radio" name="moradia" value="Casa sem quintal"> Casa sem quintal</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Onde dorme?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="dorme" value="Cama dos tutores"> Cama dos tutores</label>
-            <label><input type="radio" name="dorme" value="Sofá"> Sofá</label>
-            <label><input type="radio" name="dorme" value="Caminha própria"> Caminha própria</label>
-            <label><input type="radio" name="dorme" value="Canil"> Canil</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Acesso livre à casa?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="acesso_livre" value="Sim"> Sim, total</label>
-            <label><input type="radio" name="acesso_livre" value="Parcial"> Parcial</label>
-            <label><input type="radio" name="acesso_livre" value="Não"> Não</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Tipo de moradia</label><div class="radio-group"><label><input type="radio" name="moradia" value="Apartamento"> Apartamento</label><label><input type="radio" name="moradia" value="Casa c/ quintal"> Casa c/ quintal</label><label><input type="radio" name="moradia" value="Casa s/ quintal"> Casa s/ quintal</label></div></div>
+        <div class="field-group"><label>Onde dorme?</label><div class="radio-group"><label><input type="radio" name="dorme" value="Cama dos tutores"> Cama dos tutores</label><label><input type="radio" name="dorme" value="Sofá"> Sofá</label><label><input type="radio" name="dorme" value="Caminha própria"> Caminha própria</label><label><input type="radio" name="dorme" value="Canil"> Canil</label></div></div>
+        <div class="field-group"><label>Acesso livre à casa?</label><div class="radio-group"><label><input type="radio" name="acesso_livre" value="Sim"> Sim, total</label><label><input type="radio" name="acesso_livre" value="Parcial"> Parcial</label><label><input type="radio" name="acesso_livre" value="Não"> Não</label></div></div>
         <div class="field-group"><label>Horas sozinho por dia</label><input type="text" id="horas_sozinho" placeholder="Ex: 4h / não fica sozinho"></div>
       </div>
       <div class="divider"></div>
       <div class="subsection-title">Exercício e Estimulação</div>
       <div class="field-grid">
-        <div class="field-group">
-          <label>Passeios por dia</label>
-          <div class="radio-group">
-            <label><input type="radio" name="passeios" value="Nenhum"> Nenhum</label>
-            <label><input type="radio" name="passeios" value="1x"> 1x</label>
-            <label><input type="radio" name="passeios" value="2x"> 2x</label>
-            <label><input type="radio" name="passeios" value="3+x"> 3+</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Duração dos passeios</label>
-          <div class="radio-group">
-            <label><input type="radio" name="duracao_passeio" value="<10min"> &lt;10 min</label>
-            <label><input type="radio" name="duracao_passeio" value="10-20min"> 10–20 min</label>
-            <label><input type="radio" name="duracao_passeio" value="20-40min"> 20–40 min</label>
-            <label><input type="radio" name="duracao_passeio" value=">40min"> +40 min</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Enriquecimento ambiental</label>
-          <div class="radio-group">
-            <label><input type="radio" name="enrichment" value="Frequente"> Frequente</label>
-            <label><input type="radio" name="enrichment" value="Às vezes"> Às vezes</label>
-            <label><input type="radio" name="enrichment" value="Raramente"> Raramente</label>
-            <label><input type="radio" name="enrichment" value="Não"> Não</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Brinquedos disponíveis</label>
-          <div class="radio-group">
-            <label><input type="radio" name="brinquedos" value="Muitos"> Muitos</label>
-            <label><input type="radio" name="brinquedos" value="Alguns"> Alguns</label>
-            <label><input type="radio" name="brinquedos" value="Poucos"> Poucos</label>
-            <label><input type="radio" name="brinquedos" value="Nenhum"> Nenhum</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Passeios por dia</label><div class="radio-group"><label><input type="radio" name="passeios" value="Nenhum"> Nenhum</label><label><input type="radio" name="passeios" value="1x"> 1x</label><label><input type="radio" name="passeios" value="2x"> 2x</label><label><input type="radio" name="passeios" value="3+"> 3+</label></div></div>
+        <div class="field-group"><label>Duração dos passeios</label><div class="radio-group"><label><input type="radio" name="duracao_passeio" value="<10min"> &lt;10min</label><label><input type="radio" name="duracao_passeio" value="10-20min"> 10–20min</label><label><input type="radio" name="duracao_passeio" value="20-40min"> 20–40min</label><label><input type="radio" name="duracao_passeio" value=">40min"> +40min</label></div></div>
+        <div class="field-group"><label>Enriquecimento ambiental</label><div class="radio-group"><label><input type="radio" name="enrichment" value="Frequente"> Frequente</label><label><input type="radio" name="enrichment" value="Às vezes"> Às vezes</label><label><input type="radio" name="enrichment" value="Raramente"> Raramente</label><label><input type="radio" name="enrichment" value="Não"> Não</label></div></div>
+        <div class="field-group"><label>Brinquedos disponíveis</label><div class="radio-group"><label><input type="radio" name="brinquedos" value="Muitos"> Muitos</label><label><input type="radio" name="brinquedos" value="Alguns"> Alguns</label><label><input type="radio" name="brinquedos" value="Poucos"> Poucos</label><label><input type="radio" name="brinquedos" value="Nenhum"> Nenhum</label></div></div>
       </div>
       <div class="divider"></div>
       <div class="subsection-title">Alimentação</div>
       <div class="field-grid">
-        <div class="field-group">
-          <label>Tipo de alimentação</label>
-          <div class="radio-group">
-            <label><input type="radio" name="alimentacao" value="Ração seca"> Ração seca</label>
-            <label><input type="radio" name="alimentacao" value="Úmida"> Úmida</label>
-            <label><input type="radio" name="alimentacao" value="Natural/BARF"> Natural / BARF</label>
-            <label><input type="radio" name="alimentacao" value="Misto"> Misto</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Recebe comida da mesa / petiscos extras?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="comida_mesa" value="Frequentemente"> Frequentemente</label>
-            <label><input type="radio" name="comida_mesa" value="Às vezes"> Às vezes</label>
-            <label><input type="radio" name="comida_mesa" value="Nunca"> Nunca</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Tipo de alimentação</label><div class="radio-group"><label><input type="radio" name="alimentacao" value="Ração seca"> Ração seca</label><label><input type="radio" name="alimentacao" value="Úmida"> Úmida</label><label><input type="radio" name="alimentacao" value="Natural/BARF"> Natural/BARF</label><label><input type="radio" name="alimentacao" value="Misto"> Misto</label></div></div>
+        <div class="field-group"><label>Comida da mesa / petiscos extras?</label><div class="radio-group"><label><input type="radio" name="comida_mesa" value="Frequentemente"> Frequentemente</label><label><input type="radio" name="comida_mesa" value="Às vezes"> Às vezes</label><label><input type="radio" name="comida_mesa" value="Nunca"> Nunca</label></div></div>
       </div>
     </div>
-    <div class="nav-buttons">
-      <button class="btn btn-outline" onclick="nextStep(1)">← Anterior</button>
-      <button class="btn btn-primary" onclick="nextStep(3)">Próximo →</button>
-    </div>
+    <div class="nav-buttons"><button class="btn btn-outline" onclick="nextStep(1)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(3)">Próximo →</button></div>
   </div>
 
-  <!-- STEP 3 -->
+  <!-- ── STEP 3 ── -->
   <div class="section-card" id="step-3">
     <div class="section-header">
       <div class="section-icon">💊</div>
-      <div>
-        <div class="section-title">3. Histórico Clínico e Treinamento</div>
-        <div class="section-subtitle">Saúde, medicamentos e histórico de treinamento</div>
-      </div>
+      <div><div class="section-title">3. Histórico Clínico e Treinamento</div><div class="section-subtitle">Saúde, medicamentos e histórico de treinamento</div></div>
     </div>
     <div class="section-body">
       <div class="subsection-title">Saúde Clínica</div>
@@ -352,231 +255,98 @@
         <div class="field-group"><label>Medicamentos em uso</label><textarea id="medicamentos" placeholder="Ex: nenhum / fenobarbital 30mg 2x ao dia..."></textarea></div>
       </div>
       <div class="field-grid">
-        <div class="field-group">
-          <label>Exames recentes?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="exames" value="Sim"> Sim</label>
-            <label><input type="radio" name="exames" value="Não"> Não</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Dor crônica suspeita ou confirmada?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="dor" value="Sim"> Sim</label>
-            <label><input type="radio" name="dor" value="Não"> Não</label>
-            <label><input type="radio" name="dor" value="Suspeita"> Suspeita</label>
-          </div>
-        </div>
-      </div>
-      <div class="field-grid">
-        <div class="field-group"><label>Histórico de traumas / cirurgias</label><textarea id="traumas" placeholder="Ex: atropelamento, cirurgia ortopédica..."></textarea></div>
-        <div class="field-group">
-          <label>Vacinas e vermifugação em dia?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="vacinas" value="Sim"> Sim</label>
-            <label><input type="radio" name="vacinas" value="Não"> Não</label>
-            <label><input type="radio" name="vacinas" value="Parcial"> Parcial</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Exames recentes?</label><div class="radio-group"><label><input type="radio" name="exames" value="Sim"> Sim</label><label><input type="radio" name="exames" value="Não"> Não</label></div></div>
+        <div class="field-group"><label>Dor crônica?</label><div class="radio-group"><label><input type="radio" name="dor" value="Sim"> Sim</label><label><input type="radio" name="dor" value="Não"> Não</label><label><input type="radio" name="dor" value="Suspeita"> Suspeita</label></div></div>
+        <div class="field-group"><label>Traumas / cirurgias</label><textarea id="traumas" placeholder="Ex: atropelamento, cirurgia ortopédica..."></textarea></div>
+        <div class="field-group"><label>Vacinas e vermifugação em dia?</label><div class="radio-group"><label><input type="radio" name="vacinas" value="Sim"> Sim</label><label><input type="radio" name="vacinas" value="Não"> Não</label><label><input type="radio" name="vacinas" value="Parcial"> Parcial</label></div></div>
       </div>
       <div class="divider"></div>
       <div class="subsection-title">Treinamento e Socialização</div>
       <div class="field-grid">
-        <div class="field-group">
-          <label>Passou por treinamento?</label>
-          <div class="radio-group">
-            <label><input type="radio" name="treinamento" value="Sim – Reforço Positivo"> Reforço Positivo</label>
-            <label><input type="radio" name="treinamento" value="Sim – Método misto"> Misto</label>
-            <label><input type="radio" name="treinamento" value="Sim – Dominância"> Dominância</label>
-            <label><input type="radio" name="treinamento" value="Não"> Não</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Resultado do treinamento anterior</label>
-          <div class="radio-group">
-            <label><input type="radio" name="result_treinamento" value="Bom"> Bom</label>
-            <label><input type="radio" name="result_treinamento" value="Parcial"> Parcial</label>
-            <label><input type="radio" name="result_treinamento" value="Nenhum"> Nenhum</label>
-            <label><input type="radio" name="result_treinamento" value="Piorou"> Piorou</label>
-            <label><input type="radio" name="result_treinamento" value="N/A"> N/A</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Socialização com cães</label>
-          <div class="radio-group">
-            <label><input type="radio" name="social_caes" value="Boa"> Boa</label>
-            <label><input type="radio" name="social_caes" value="Seletiva"> Seletiva</label>
-            <label><input type="radio" name="social_caes" value="Ruim"> Ruim</label>
-            <label><input type="radio" name="social_caes" value="Não convive"> Não convive</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Socialização com pessoas estranhas</label>
-          <div class="radio-group">
-            <label><input type="radio" name="social_pessoas" value="Boa"> Boa</label>
-            <label><input type="radio" name="social_pessoas" value="Seletiva"> Seletiva</label>
-            <label><input type="radio" name="social_pessoas" value="Ruim"> Ruim</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Tipo de treinamento</label><div class="radio-group"><label><input type="radio" name="treinamento" value="Reforço Positivo"> Reforço Positivo</label><label><input type="radio" name="treinamento" value="Método misto"> Misto</label><label><input type="radio" name="treinamento" value="Dominância"> Dominância</label><label><input type="radio" name="treinamento" value="Não"> Não fez</label></div></div>
+        <div class="field-group"><label>Resultado</label><div class="radio-group"><label><input type="radio" name="result_treinamento" value="Bom"> Bom</label><label><input type="radio" name="result_treinamento" value="Parcial"> Parcial</label><label><input type="radio" name="result_treinamento" value="Nenhum"> Nenhum</label><label><input type="radio" name="result_treinamento" value="Piorou"> Piorou</label><label><input type="radio" name="result_treinamento" value="N/A"> N/A</label></div></div>
+        <div class="field-group"><label>Socialização com cães</label><div class="radio-group"><label><input type="radio" name="social_caes" value="Boa"> Boa</label><label><input type="radio" name="social_caes" value="Seletiva"> Seletiva</label><label><input type="radio" name="social_caes" value="Ruim"> Ruim</label><label><input type="radio" name="social_caes" value="Não convive"> Não convive</label></div></div>
+        <div class="field-group"><label>Socialização com pessoas</label><div class="radio-group"><label><input type="radio" name="social_pessoas" value="Boa"> Boa</label><label><input type="radio" name="social_pessoas" value="Seletiva"> Seletiva</label><label><input type="radio" name="social_pessoas" value="Ruim"> Ruim</label></div></div>
       </div>
-      <div class="field-grid full">
-        <div class="field-group"><label>Socialização na fase filhote (0–16 semanas)</label><textarea id="socializacao_filhote" placeholder="Ex: ficou isolado em casa, frequentou escola de filhotes, teve contato com muitas pessoas..."></textarea></div>
-      </div>
+      <div class="field-grid full"><div class="field-group"><label>Socialização na fase filhote (0–16 semanas)</label><textarea id="socializacao_filhote" placeholder="Ex: ficou isolado, frequentou escola de filhotes, contato com muitas pessoas..."></textarea></div></div>
     </div>
-    <div class="nav-buttons">
-      <button class="btn btn-outline" onclick="nextStep(2)">← Anterior</button>
-      <button class="btn btn-primary" onclick="nextStep(4)">Próximo →</button>
-    </div>
+    <div class="nav-buttons"><button class="btn btn-outline" onclick="nextStep(2)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(4)">Próximo →</button></div>
   </div>
 
-  <!-- STEP 4 -->
+  <!-- ── STEP 4 ── -->
   <div class="section-card" id="step-4">
     <div class="section-header">
       <div class="section-icon">⚠️</div>
-      <div>
-        <div class="section-title">4. Queixas Comportamentais</div>
-        <div class="section-subtitle">Descrição detalhada dos comportamentos-problema</div>
-      </div>
+      <div><div class="section-title">4. Queixas Comportamentais</div><div class="section-subtitle">Descrição detalhada dos comportamentos-problema</div></div>
     </div>
     <div class="section-body">
       <div class="subsection-title">Comportamentos Presentes</div>
-      <div class="field-group" style="margin-bottom:16px;">
+      <div class="field-group" style="margin-bottom:14px;">
         <label>Selecione todos os que se aplicam</label>
         <div class="check-group" id="comportamentos-checks">
           <label><input type="checkbox" value="Latido excessivo"> 🔊 Latido excessivo</label>
-          <label><input type="checkbox" value="Agressividade com pessoas"> 😡 Agressividade com pessoas</label>
-          <label><input type="checkbox" value="Agressividade com animais"> 🐕 Agressividade com animais</label>
+          <label><input type="checkbox" value="Agressividade com pessoas"> 😡 Agressividade c/ pessoas</label>
+          <label><input type="checkbox" value="Agressividade com animais"> 🐕 Agressividade c/ animais</label>
           <label><input type="checkbox" value="Destruição de objetos"> 💥 Destruição de objetos</label>
           <label><input type="checkbox" value="Micção inapropriada"> 💧 Micção inapropriada</label>
           <label><input type="checkbox" value="Defecação inapropriada"> 💩 Defecação inapropriada</label>
           <label><input type="checkbox" value="Ansiedade de separação"> 😟 Ansiedade de separação</label>
           <label><input type="checkbox" value="Guarda de recursos"> 🥩 Guarda de recursos</label>
-          <label><input type="checkbox" value="Desobediência / hiperatividade"> ⚡ Desobediência / hiperatividade</label>
+          <label><input type="checkbox" value="Desobediência / hiperatividade"> ⚡ Desobediência</label>
           <label><input type="checkbox" value="Medo / fobias"> 😨 Medo / fobias</label>
-          <label><input type="checkbox" value="Comportamento compulsivo"> 🔄 Comportamento compulsivo</label>
+          <label><input type="checkbox" value="Comportamento compulsivo"> 🔄 Compulsivo</label>
           <label><input type="checkbox" value="Automutilação"> 🩹 Automutilação</label>
         </div>
       </div>
-      <div class="field-grid full">
-        <div class="field-group"><label>Descrição detalhada dos comportamentos</label><textarea id="descricao_problema" style="min-height:110px;" placeholder="O que acontece, em que situação, com que frequência, qual a reação dos tutores..."></textarea></div>
-      </div>
+      <div class="field-grid full"><div class="field-group"><label>Descrição detalhada dos comportamentos</label><textarea id="descricao_problema" style="min-height:100px;" placeholder="O que acontece, em que situação, frequência, reação dos tutores..."></textarea></div></div>
       <div class="field-grid">
-        <div class="field-group"><label>Há quanto tempo apresenta esses comportamentos?</label><input type="text" id="tempo_problema" placeholder="Ex: desde filhote / há 1 ano"></div>
-        <div class="field-group">
-          <label>Evolução ao longo do tempo</label>
-          <div class="radio-group">
-            <label><input type="radio" name="piora" value="Piorou"> Piorou</label>
-            <label><input type="radio" name="piora" value="Estável"> Estável</label>
-            <label><input type="radio" name="piora" value="Melhorou"> Melhorou</label>
-            <label><input type="radio" name="piora" value="Flutuante"> Flutuante</label>
-          </div>
-        </div>
-      </div>
-      <div class="field-grid">
-        <div class="field-group"><label>Evento que desencadeou ou coincidiu com o início</label><textarea id="evento_gatilho" placeholder="Ex: mudança de casa, novo bebê, falecimento de outro animal..."></textarea></div>
-        <div class="field-group"><label>Como os tutores reagem ao comportamento?</label><textarea id="reacao_tutor" placeholder="Ex: gritam, ignoram, oferecem carinho, dão petisco..."></textarea></div>
+        <div class="field-group"><label>Há quanto tempo?</label><input type="text" id="tempo_problema" placeholder="Ex: desde filhote / há 1 ano"></div>
+        <div class="field-group"><label>Evolução</label><div class="radio-group"><label><input type="radio" name="piora" value="Piorou"> Piorou</label><label><input type="radio" name="piora" value="Estável"> Estável</label><label><input type="radio" name="piora" value="Melhorou"> Melhorou</label><label><input type="radio" name="piora" value="Flutuante"> Flutuante</label></div></div>
+        <div class="field-group"><label>Evento que desencadeou</label><textarea id="evento_gatilho" placeholder="Ex: mudança, novo bebê, falecimento de outro animal..."></textarea></div>
+        <div class="field-group"><label>Como os tutores reagem</label><textarea id="reacao_tutor" placeholder="Ex: gritam, ignoram, oferecem carinho, dão petisco..."></textarea></div>
       </div>
       <div class="divider"></div>
       <div class="subsection-title">Contexto Específico</div>
       <div class="field-grid">
-        <div class="field-group">
-          <label>Micção inapropriada — onde ocorre?</label>
-          <div class="check-group" id="local-miccao">
-            <label><input type="checkbox" value="Cama"> 🛏 Cama</label>
-            <label><input type="checkbox" value="Sofá"> 🛋 Sofá</label>
-            <label><input type="checkbox" value="Tapete"> 🟫 Tapete</label>
-            <label><input type="checkbox" value="Canto fixo"> 📍 Canto fixo</label>
-            <label><input type="checkbox" value="Local variado"> 🔀 Variado</label>
-          </div>
-        </div>
-        <div class="field-group">
-          <label>Latido / agressividade — gatilhos</label>
-          <div class="check-group" id="gatilhos-latido">
-            <label><input type="checkbox" value="Visitas"> 🚪 Visitas</label>
-            <label><input type="checkbox" value="Aproximação dos tutores por terceiros"> 🤝 Aprox. dos tutores</label>
-            <label><input type="checkbox" value="Estranhos na rua"> 🚶 Estranhos na rua</label>
-            <label><input type="checkbox" value="Outros cães"> 🐕 Outros cães</label>
-            <label><input type="checkbox" value="Sons externos"> 🔔 Sons</label>
-            <label><input type="checkbox" value="Hora da alimentação"> 🍖 Alimentação</label>
-          </div>
-        </div>
+        <div class="field-group"><label>Local da micção inapropriada</label><div class="check-group" id="local-miccao"><label><input type="checkbox" value="Cama"> 🛏 Cama</label><label><input type="checkbox" value="Sofá"> 🛋 Sofá</label><label><input type="checkbox" value="Tapete"> Tapete</label><label><input type="checkbox" value="Canto fixo"> 📍 Canto fixo</label><label><input type="checkbox" value="Local variado"> Variado</label></div></div>
+        <div class="field-group"><label>Gatilhos latido / agressividade</label><div class="check-group" id="gatilhos-latido"><label><input type="checkbox" value="Visitas"> 🚪 Visitas</label><label><input type="checkbox" value="Aprox. tutores por terceiros"> 🤝 Aprox. tutores</label><label><input type="checkbox" value="Estranhos na rua"> Estranhos</label><label><input type="checkbox" value="Outros cães"> Outros cães</label><label><input type="checkbox" value="Sons"> 🔔 Sons</label><label><input type="checkbox" value="Alimentação"> 🍖 Alimentação</label></div></div>
       </div>
       <div class="field-grid">
         <div class="field-group">
-          <label>Intensidade dos comportamentos-problema (1 = leve / 5 = grave)</label>
-          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
-            <span class="scale-label">Leve</span>
-            <div class="scale-group">
-              <label><input type="radio" name="intensidade" value="1">1</label>
-              <label><input type="radio" name="intensidade" value="2">2</label>
-              <label><input type="radio" name="intensidade" value="3">3</label>
-              <label><input type="radio" name="intensidade" value="4">4</label>
-              <label><input type="radio" name="intensidade" value="5">5</label>
-            </div>
-            <span class="scale-label">Grave</span>
-          </div>
+          <label>Intensidade (1 leve → 5 grave)</label>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span class="scale-label">Leve</span><div class="scale-group"><label><input type="radio" name="intensidade" value="1">1</label><label><input type="radio" name="intensidade" value="2">2</label><label><input type="radio" name="intensidade" value="3">3</label><label><input type="radio" name="intensidade" value="4">4</label><label><input type="radio" name="intensidade" value="5">5</label></div><span class="scale-label">Grave</span></div>
         </div>
         <div class="field-group">
-          <label>Impacto na qualidade de vida dos tutores (1 = baixo / 5 = alto)</label>
-          <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
-            <span class="scale-label">Baixo</span>
-            <div class="scale-group">
-              <label><input type="radio" name="impacto_tutor" value="1">1</label>
-              <label><input type="radio" name="impacto_tutor" value="2">2</label>
-              <label><input type="radio" name="impacto_tutor" value="3">3</label>
-              <label><input type="radio" name="impacto_tutor" value="4">4</label>
-              <label><input type="radio" name="impacto_tutor" value="5">5</label>
-            </div>
-            <span class="scale-label">Alto</span>
-          </div>
+          <label>Impacto nos tutores (1 baixo → 5 alto)</label>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:4px;"><span class="scale-label">Baixo</span><div class="scale-group"><label><input type="radio" name="impacto_tutor" value="1">1</label><label><input type="radio" name="impacto_tutor" value="2">2</label><label><input type="radio" name="impacto_tutor" value="3">3</label><label><input type="radio" name="impacto_tutor" value="4">4</label><label><input type="radio" name="impacto_tutor" value="5">5</label></div><span class="scale-label">Alto</span></div>
         </div>
       </div>
+      <div class="field-grid full"><div class="field-group"><label>Observações adicionais da veterinária</label><textarea id="obs_vet" placeholder="Qualquer observação clínica relevante não capturada acima..."></textarea></div></div>
     </div>
-    <div class="nav-buttons">
-      <button class="btn btn-outline" onclick="nextStep(3)">← Anterior</button>
-      <button class="btn btn-primary" onclick="nextStep(5)">Próximo →</button>
-    </div>
+    <div class="nav-buttons"><button class="btn btn-outline" onclick="nextStep(3)">← Anterior</button><button class="btn btn-primary" onclick="nextStep(5)">Próximo →</button></div>
   </div>
 
-  <!-- STEP 5 -->
+  <!-- ── STEP 5: PDF ── -->
   <div class="section-card" id="step-5">
     <div class="section-header">
-      <div class="section-icon">🧠</div>
-      <div>
-        <div class="section-title">5. Análise Comportamental com IA</div>
-        <div class="section-subtitle">Hipóteses diagnósticas e plano terapêutico</div>
-      </div>
+      <div class="section-icon">📄</div>
+      <div><div class="section-title">5. Exportar Anamnese em PDF</div><div class="section-subtitle">Gere o documento para análise com IA</div></div>
     </div>
     <div class="section-body">
-      <div class="field-grid full">
-        <div class="field-group">
-          <label>Observações adicionais da veterinária (opcional)</label>
-          <textarea id="obs_vet" style="min-height:90px;" placeholder="Adicione qualquer observação clínica relevante não capturada acima..."></textarea>
+      <button class="btn-pdf" onclick="gerarPDF()">
+        📄 Gerar PDF da Anamnese
+      </button>
+      <div class="pdf-hint">
+        <strong>Como usar o PDF para obter análise comportamental:</strong><br><br>
+        <strong>1.</strong> Clique em "Gerar PDF" → salve o arquivo (escolha "Salvar como PDF" na janela de impressão)<br>
+        <strong>2.</strong> Abra <strong>claude.ai</strong> em nova conversa e anexe o PDF<br>
+        <strong>3.</strong> Envie o seguinte prompt:
+        <div class="prompt-box">
+          "Você é especialista em medicina comportamental veterinária com 20 anos de experiência. Analise a anamnese em anexo e forneça: (1) hipóteses diagnósticas com justificativa, (2) fatores de manutenção dos comportamentos, (3) investigação clínica prioritária para descartar causas orgânicas, (4) plano de modificação de comportamento, (5) indicação farmacológica se aplicável, e (6) prognóstico. Responda em português, com linguagem técnica compatível com veterinária experiente."
         </div>
       </div>
-      <button class="btn btn-analyze" onclick="analyzeCase()">
-        🧠 Gerar Análise Comportamental com IA
-      </button>
     </div>
-    <div class="nav-buttons">
-      <button class="btn btn-outline" onclick="nextStep(4)">← Anterior</button>
-      <span></span>
-    </div>
-  </div>
-
-  <!-- AI RESULT -->
-  <div id="ai-result">
-    <div class="ai-header">
-      <div class="section-icon" style="background:var(--gold);">✨</div>
-      <div>
-        <h3>Análise Comportamental Veterinária</h3>
-        <p>Gerada com base na anamnese completa</p>
-      </div>
-      <div class="ai-badge">IA Assistida</div>
-    </div>
-    <div class="ai-body" id="ai-content">
-      <div class="loading-dots"><span></span><span></span><span></span></div>
-    </div>
+    <div class="nav-buttons"><button class="btn btn-outline" onclick="nextStep(4)">← Anterior</button><span></span></div>
   </div>
 
 </div>
@@ -594,7 +364,6 @@ function buildDots() {
     c.appendChild(d);
   }
 }
-
 function nextStep(step) {
   document.getElementById(`step-${currentStep}`).classList.remove('active');
   currentStep = step;
@@ -602,177 +371,32 @@ function nextStep(step) {
   buildDots();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 buildDots();
 
-function getRadio(name) {
-  const el = document.querySelector(`input[name="${name}"]:checked`);
-  return el ? el.value : 'Não informado';
-}
+function gerarPDF() {
+  // Show sections 1-4 for print, hide step 5
+  for (let i = 1; i <= 4; i++) document.getElementById(`step-${i}`).classList.add('active');
+  document.getElementById('step-5').classList.remove('active');
 
-function getChecks(containerId) {
-  const checks = document.querySelectorAll(`#${containerId} input[type="checkbox"]:checked`);
-  return Array.from(checks).map(c => c.value).join(', ') || 'Nenhum';
-}
+  // Build PDF header info
+  const nome = document.getElementById('nome_animal').value || '—';
+  const raca = document.getElementById('raca').value || '—';
+  const idade = document.getElementById('idade').value || '—';
+  const data = new Date().toLocaleDateString('pt-BR');
+  document.getElementById('pdf-meta-text').innerHTML =
+    `Paciente: <strong>${nome}</strong> | ${raca} | ${idade}<br>Data do atendimento: ${data}`;
 
-function collectData() {
-  return {
-    animal: {
-      nome: document.getElementById('nome_animal').value || 'N/I',
-      raca: document.getElementById('raca').value || 'N/I',
-      idade: document.getElementById('idade').value || 'N/I',
-      sexo: getRadio('sexo'),
-      castrado: getRadio('castrado'),
-      peso: document.getElementById('peso').value || 'N/I',
-      origem: getRadio('origem'),
-      tempo_familia: document.getElementById('tempo_familia').value || 'N/I'
-    },
-    tutores: {
-      nomes: document.getElementById('tutor_nome').value || 'N/I',
-      idades: document.getElementById('tutor_idade').value || 'N/I',
-      profissoes: document.getElementById('tutor_profissao').value || 'N/I',
-      moradores: document.getElementById('moradores').value || 'N/I',
-      criancas: getRadio('criancas'),
-      outros_animais: getRadio('outros_animais'),
-      vinculo: document.getElementById('vinculo').value || 'N/I'
-    },
-    ambiente: {
-      moradia: getRadio('moradia'),
-      dorme: getRadio('dorme'),
-      acesso_livre: getRadio('acesso_livre'),
-      horas_sozinho: document.getElementById('horas_sozinho').value || 'N/I',
-      passeios: getRadio('passeios'),
-      duracao_passeio: getRadio('duracao_passeio'),
-      enrichment: getRadio('enrichment'),
-      brinquedos: getRadio('brinquedos'),
-      alimentacao: getRadio('alimentacao'),
-      comida_mesa: getRadio('comida_mesa')
-    },
-    saude: {
-      problemas: document.getElementById('saude').value || 'Nenhum relatado',
-      medicamentos: document.getElementById('medicamentos').value || 'Nenhum',
-      exames: getRadio('exames'),
-      dor: getRadio('dor'),
-      traumas: document.getElementById('traumas').value || 'Nenhum',
-      vacinas: getRadio('vacinas'),
-      treinamento: getRadio('treinamento'),
-      result_treinamento: getRadio('result_treinamento'),
-      social_caes: getRadio('social_caes'),
-      social_pessoas: getRadio('social_pessoas'),
-      socializacao_filhote: document.getElementById('socializacao_filhote').value || 'N/I'
-    },
-    queixas: {
-      comportamentos: getChecks('comportamentos-checks'),
-      descricao: document.getElementById('descricao_problema').value || 'N/I',
-      tempo_problema: document.getElementById('tempo_problema').value || 'N/I',
-      piora: getRadio('piora'),
-      evento_gatilho: document.getElementById('evento_gatilho').value || 'N/I',
-      reacao_tutor: document.getElementById('reacao_tutor').value || 'N/I',
-      local_miccao: getChecks('local-miccao'),
-      gatilhos_latido: getChecks('gatilhos-latido'),
-      intensidade: getRadio('intensidade'),
-      impacto_tutor: getRadio('impacto_tutor')
-    },
-    obs_vet: document.getElementById('obs_vet').value || 'Nenhuma'
-  };
-}
+  window.print();
 
-function buildPrompt(d) {
-  return `Você é um especialista em medicina comportamental veterinária com 20+ anos de experiência clínica. Uma veterinária com quase 20 anos de carreira clínica está iniciando na área comportamental e precisa de análise detalhada do caso abaixo.
-
-ANAMNESE:
-
-PACIENTE: ${d.animal.nome} | ${d.animal.raca} | ${d.animal.idade} | ${d.animal.sexo} | Castrado: ${d.animal.castrado} | ${d.animal.peso}kg | Origem: ${d.animal.origem} | Tempo com família: ${d.animal.tempo_familia}
-
-TUTORES: ${d.tutores.nomes} (${d.tutores.idades}) | ${d.tutores.profissoes} | Casa: ${d.tutores.moradores} | Crianças: ${d.tutores.criancas} | Outros animais: ${d.tutores.outros_animais} | Vínculo: ${d.tutores.vinculo}
-
-AMBIENTE: ${d.ambiente.moradia} | Dorme: ${d.ambiente.dorme} | Acesso livre: ${d.ambiente.acesso_livre} | Sozinho: ${d.ambiente.horas_sozinho}/dia | Passeios: ${d.ambiente.passeios} × ${d.ambiente.duracao_passeio} | Enriquecimento: ${d.ambiente.enrichment} | Brinquedos: ${d.ambiente.brinquedos} | Alimentação: ${d.ambiente.alimentacao} | Comida da mesa: ${d.ambiente.comida_mesa}
-
-SAÚDE: ${d.saude.problemas} | Medicamentos: ${d.saude.medicamentos} | Dor: ${d.saude.dor} | Exames recentes: ${d.saude.exames} | Traumas: ${d.saude.traumas} | Vacinas: ${d.saude.vacinas}
-
-TREINAMENTO: ${d.saude.treinamento} | Resultado: ${d.saude.result_treinamento} | Social cães: ${d.saude.social_caes} | Social pessoas: ${d.saude.social_pessoas} | Socialização filhote: ${d.saude.socializacao_filhote}
-
-QUEIXAS: ${d.queixas.comportamentos}
-Descrição: ${d.queixas.descricao}
-Tempo: ${d.queixas.tempo_problema} | Evolução: ${d.queixas.piora}
-Gatilho inicial: ${d.queixas.evento_gatilho}
-Reação dos tutores: ${d.queixas.reacao_tutor}
-Local micção: ${d.queixas.local_miccao} | Gatilhos latido: ${d.queixas.gatilhos_latido}
-Intensidade: ${d.queixas.intensidade}/5 | Impacto tutores: ${d.queixas.impacto_tutor}/5
-
-OBS. VETERINÁRIA: ${d.obs_vet}
-
----
-Forneça análise estruturada e técnica com os seguintes tópicos:
-
-## 1. Leitura do caso e dinâmica tutor-animal
-## 2. Hipóteses diagnósticas comportamentais (com justificativa)
-## 3. Fatores de manutenção dos comportamentos
-## 4. Investigação clínica prioritária (descartar causas orgânicas)
-## 5. Plano de modificação de comportamento
-## 6. Manejo ambiental e orientações aos tutores
-## 7. Indicação farmacológica (se aplicável)
-## 8. Prognóstico e pontos de atenção
-## 9. Próximos passos da consulta
-
-Use linguagem técnica compatível com veterinária experiente. Responda em português do Brasil.`;
-}
-
-async function analyzeCase() {
-  const btn = document.querySelector('.btn-analyze');
-  const resultDiv = document.getElementById('ai-result');
-  const contentDiv = document.getElementById('ai-content');
-
-  btn.disabled = true;
-  btn.textContent = '⏳ Analisando caso...';
-  resultDiv.style.display = 'block';
-  contentDiv.innerHTML = '<div class="loading-dots"><span></span><span></span><span></span></div>';
-  resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-  const data = collectData();
-  const prompt = buildPrompt(data);
-
-  try {
-    const response = await fetch('/api/analyze', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) throw new Error(result.error || 'Erro na API');
-
-    contentDiv.innerHTML = formatAnalysis(result.result) + `
-      <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Salvar PDF</button>
-      <div class="disclaimer">
-        ⚕️ <strong>Aviso clínico:</strong> Esta análise é gerada por IA como apoio diagnóstico. O julgamento clínico da veterinária responsável deve sempre prevalecer. Diagnósticos comportamentais definitivos exigem avaliação presencial completa.
-      </div>`;
-
-  } catch (err) {
-    contentDiv.innerHTML = `<p style="color:var(--terracotta);padding:10px 0;">❌ Erro: ${err.message}. Verifique sua conexão e tente novamente.</p>`;
-  }
-
-  btn.disabled = false;
-  btn.innerHTML = '🔄 Gerar nova análise';
-}
-
-function formatAnalysis(text) {
-  let html = text
-    .replace(/^## (.+)$/gm, '<h4>$1</h4>')
-    .replace(/^### (.+)$/gm, '<h4>$1</h4>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/^[-•*] (.+)$/gm, '<li>$1</li>')
-    .replace(/(<li>[\s\S]*?<\/li>\n?)+/g, m => `<ul>${m}</ul>`)
-    .split('\n')
-    .map(line => {
-      line = line.trim();
-      if (!line) return '';
-      if (line.startsWith('<h4>') || line.startsWith('<ul>') || line.startsWith('<li>')) return line;
-      return `<p>${line}</p>`;
-    })
-    .join('');
-  return html;
+  // Restore UI after print dialog
+  setTimeout(() => {
+    for (let i = 1; i <= 4; i++) {
+      if (i !== currentStep) document.getElementById(`step-${i}`).classList.remove('active');
+    }
+    document.getElementById('step-5').classList.add('active');
+    currentStep = 5;
+    buildDots();
+  }, 1500);
 }
 </script>
 </body>
